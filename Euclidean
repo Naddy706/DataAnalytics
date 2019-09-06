@@ -1,0 +1,42 @@
+import pandas as pd
+import numpy as np
+
+imp = pd.read_csv('Book1.csv')
+
+f=[]
+data=[]
+abc=[]
+e=[]
+for x in range(len(imp)):
+    e.append(imp['Company'][x])
+    abc.append(imp['Camera'][x])
+    abc.append(imp['Storage'][x])
+    abc.append(imp['Processor'][x])
+    data.append(abc)
+    f.append(e)
+    e=[]
+    abc=[]
+
+
+print(data[0][1])
+aaa = []
+myInput=[]
+for b in range(len(f)):
+    d="Xiaomi"
+    print(f[b][0])
+    #print(data[b])
+    c=data[b]
+    print(c[0],c[1])
+    if f[b][0] == d:
+        myInput.append(c[0])
+        myInput.append(c[1])
+        print("input",myInput)
+        
+        l=[]
+for i in range(len(data)):
+    if i < len(data):
+        a = (((data[i][0]-myInput[0])**2)+((data[i][1]-myInput[1])**2))**.5
+        aaa.append(i)
+        l.append(a)
+        l.sort()
+print("Euclidean => ",l)
